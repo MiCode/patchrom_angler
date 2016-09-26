@@ -1,0 +1,50 @@
+*** ResourcesManager.smali	2016-09-21 11:35:09.663252866 +0800
+--- ResourcesManager.smali	2016-09-21 11:33:19.631252881 +0800
+***************
+*** 213,218 ****
+      or-int/lit16 v0, v0, 0xd00
+  
+      :cond_3
+      iget-object v10, p1, Landroid/content/res/Configuration;->locale:Ljava/util/Locale;
+  
+      if-eqz v10, :cond_4
+--- 213,220 ----
+      or-int/lit16 v0, v0, 0xd00
+  
+      :cond_3
++     invoke-static {v0, p1}, Landroid/app/MiuiThemeHelper;->handleExtraConfigurationChanges(ILandroid/content/res/Configuration;)V
++ 
+      iget-object v10, p1, Landroid/content/res/Configuration;->locale:Ljava/util/Locale;
+  
+      if-eqz v10, :cond_4
+***************
+*** 986,999 ****
+  
+      :cond_b
+      :goto_7
+!     new-instance v16, Landroid/content/res/Resources;
+  
+      .end local v16    # "r":Landroid/content/res/Resources;
+      move-object/from16 v0, v16
+  
+      move-object/from16 v1, p7
+  
+!     invoke-direct {v0, v4, v6, v5, v1}, Landroid/content/res/Resources;-><init>(Landroid/content/res/AssetManager;Landroid/util/DisplayMetrics;Landroid/content/res/Configuration;Landroid/content/res/CompatibilityInfo;)V
+  
+      .restart local v16    # "r":Landroid/content/res/Resources;
+      monitor-enter p0
+--- 988,1001 ----
+  
+      :cond_b
+      :goto_7
+!     new-instance v16, Landroid/content/res/MiuiResources;
+  
+      .end local v16    # "r":Landroid/content/res/Resources;
+      move-object/from16 v0, v16
+  
+      move-object/from16 v1, p7
+  
+!     invoke-direct {v0, v4, v6, v5, v1}, Landroid/content/res/MiuiResources;-><init>(Landroid/content/res/AssetManager;Landroid/util/DisplayMetrics;Landroid/content/res/Configuration;Landroid/content/res/CompatibilityInfo;)V
+  
+      .restart local v16    # "r":Landroid/content/res/Resources;
+      monitor-enter p0
