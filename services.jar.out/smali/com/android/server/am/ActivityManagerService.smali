@@ -94740,57 +94740,53 @@
 
     const/16 v16, 0x0
 
-    .line 17452
     const/16 v18, 0x3e8
 
     const/16 v19, -0x1
 
     move-object/from16 v3, p0
 
-    .line 17450
     invoke-direct/range {v3 .. v19}, Lcom/android/server/am/ActivityManagerService;->broadcastIntentLocked(Lcom/android/server/am/ProcessRecord;Ljava/lang/String;Landroid/content/Intent;Ljava/lang/String;Landroid/content/IIntentReceiver;ILjava/lang/String;Landroid/os/Bundle;[Ljava/lang/String;ILandroid/os/Bundle;ZZIII)I
 
-    .line 17453
+    move/from16 v0, v22
+
+    move-object/from16 v1, v30
+
+    invoke-static {v0, v1}, Lcom/android/server/am/ActivityManagerServiceInjector;->handleExtraConfigurationChangesForSystem(ILandroid/content/res/Configuration;)V
+
     and-int/lit8 v3, v22, 0x4
 
     if-eqz v3, :cond_7
 
-    .line 17454
     new-instance v6, Landroid/content/Intent;
 
     .end local v6    # "intent":Landroid/content/Intent;
-    const-string/jumbo v3, "android.intent.action.LOCALE_CHANGED"
+    const-string v3, "android.intent.action.LOCALE_CHANGED"
 
     invoke-direct {v6, v3}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 17455
     .restart local v6    # "intent":Landroid/content/Intent;
     const/high16 v3, 0x10000000
 
     invoke-virtual {v6, v3}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
 
-    .line 17456
     move-object/from16 v0, p0
 
     iget-boolean v3, v0, Lcom/android/server/am/ActivityManagerService;->mProcessesReady:Z
 
     if-nez v3, :cond_6
 
-    .line 17457
     const/high16 v3, 0x40000000    # 2.0f
 
     invoke-virtual {v6, v3}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
 
-    .line 17461
     :cond_6
     sget v17, Lcom/android/server/am/ActivityManagerService;->MY_PID:I
 
-    .line 17459
     const/4 v4, 0x0
 
     const/4 v5, 0x0
 
-    .line 17460
     const/4 v7, 0x0
 
     const/4 v8, 0x0
