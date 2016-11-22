@@ -8796,7 +8796,7 @@
     .line 1239
     const/16 v5, 0x7536
 
-    invoke-static {v5, v4}, Landroid/util/EventLog;->writeEvent(I[Ljava/lang/Object;)I
+    invoke-static/range {p1 .. p1}, Lcom/android/server/am/ActivityStackHook;->writeAmRestartActivityEventLog(Lcom/android/server/am/ActivityRecord;)V
 
     .line 1243
     :cond_8
